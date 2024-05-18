@@ -1,52 +1,57 @@
-body{
-    background-color:black   ;
-}
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: black;
 }
-footer a{
+
+footer a {
     text-decoration: none;
-    color:white;
+    color: white;
 }
-header{
-    background-color: #C40C0C;
-    padding: 3%;
+
+#top {
+    background-color: #C40C0C; /* Set background color here */
+    padding: 1.5% 3%;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-.logo{
+.logo {
     margin-top: 5px;
-    
 }
-.logo a{
+
+.logo a {
     text-decoration: none;
     color: white;
 }
-.nav-links{
+
+.nav-links {
     margin-top: 5px;
 }
-i{
+
+i {
     font-size: larger;
     margin-top: 3px;
     align-items: center;
     text-align: center;
 }
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px 20px;
+    padding: 0 20px;
     box-sizing: border-box;
     position: absolute;
     top: 0;
     left: 0;
+    background-color: #C40C0C; 
+    padding-bottom: 10px;
 }
 
 nav .logo {
@@ -68,6 +73,13 @@ nav .nav-links a:hover, nav .dark-mode-toggle:hover {
     text-decoration: underline;
 }
 
+nav .dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .header-content {
     position: relative;
     z-index: 1;
@@ -83,6 +95,7 @@ nav .nav-links a:hover, nav .dark-mode-toggle:hover {
 main {
     flex: 1;
     padding: 20px;
+    margin: 0;
 }
 
 .gallery {
@@ -90,23 +103,26 @@ main {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    
+    margin: 0 -10px; /* Remove horizontal margin */
+    margin-top: 45px;
 }
 
 .image-container {
     position: relative;
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 20px); /* Adjust width and gap */
     animation: slideDown 0.5s ease-out;
     animation-fill-mode: forwards;
-        transform: scale(1.1);
 }
 
 .image-container img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+.blurred {
+    filter: blur(5px);
 }
 
 .overlay {
@@ -115,7 +131,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: transparent;
     color: white;
     display: flex;
     justify-content: center;
@@ -129,19 +145,18 @@ main {
 
 .image-container:hover .overlay {
     opacity: 1;
-  
 }
 
 /* Responsive styles */
-@media (min-width: 600px) {
-    .image-container {
-        width: calc(50% - 10px);
+@media (max-width: 600px) {
+    header {
+        padding: 1% 2%;
     }
 }
 
-@media (min-width: 900px) {
-    .image-container {
-        width: calc(33.33% - 10px);
+@media (max-width: 400px) {
+    nav .logo {
+        font-size: 20px;
     }
 }
 
@@ -156,35 +171,11 @@ main {
     }
 }
 
-.image-container {
-    position: relative;
-    width: calc(33.33% - 10px);
-    animation: slideDown 1s ease-out;
-    animation-fill-mode: forwards;
-}
-
-
 footer {
-    background-color: #C40C0C;;
+    background-color: #C40C0C;
     color: white;
     text-align: center;
     padding: 10px 0;
-}
-
-#about-me{
-    color: white;
-}
-#about-me .content{
-    margin-top: 20px;
-}
-.content p{
-    font-size: large;
-}
-.content h1{
-    font-size: 2em;
-    transition: 0.8s;
-}
-.content h1:hover{
-    color: red;
-    text-decoration: line-through;
+    margin-top: auto; /* Push footer to the bottom */
+    margin-bottom: auto;
 }
